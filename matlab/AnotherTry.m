@@ -3,7 +3,7 @@ tic;
 ni = input('Enter initial number of neutrons: N(0) = ');
 g = input('Enter number of generations = ');
 n = ni; %initially set total neutrons to initial number inputted
-out= [n,t];
+out= [n,0];
 for z=1:g
     for a=1:n
         x=rand();
