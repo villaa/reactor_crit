@@ -3,7 +3,10 @@ tic;
 ni = input('Enter initial number of neutrons: N(0) = ');
 g = input('Enter number of generations = ');
 n = ni; %initially set total neutrons to initial number inputted
-out= [n,0];
+t=0;
+out = zeros(g,2);
+out(1,1)= n;
+out(1,2)= t;
 for z=1:g
     for a=1:n
         x=rand();
@@ -11,6 +14,10 @@ for z=1:g
         if (0.81 < x)    %if random # is greater than 0.81 it leaked
             n = n - 1 ;   %If leaked total nuetrons-1
         end
-        t(a) = y * 200;
+        t = y * 200;
     end
+         out(z+1,1)=n;
+         out(z+1,2)=t;
 end
+out
+toc;
