@@ -18,6 +18,9 @@ for z=1:g
     end
          out(z+1,1)=n;
          out(z+1,2)=t;
+         p = plot(t,n);
+         csvwrite('NofTData.csv', [n; t]);
 end
+
 out
 toc;
