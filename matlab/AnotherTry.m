@@ -29,5 +29,6 @@ fileID = fopen('NofTData.txt','w');%write a a text file
 %fprintf(formatSpec,A1,A2)
 fprintf(fileID,'%3f %0f\n',B'); %3digits past decimal in time integer for n total
 fclose(fileID); 
+V = simplot(B);
 B
 toc;
