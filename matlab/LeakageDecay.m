@@ -19,25 +19,25 @@ for z=1:g
             out=[out;[t,dn]];
         end    
     end  
-    for b = 1:nt %creating random numbers for f
-        w = rand();
-         if (0.72 < w)
-         dn = -1; % if no fiss total neutrons-1
-         elseif (0.72 >= w)
-         cf = cf + 1;
-         end
-    end
-    for c = 1:cf
-        p = rand();
-        if 0.2 > p
-           dn = 0 ;
-        elseif (0.2 <= p) && (p <= 0.85) 
-            dn = 1;
-        elseif 0.85 < z
-            dn = 2;
-        end
+ %   for b = 1:nt %creating random numbers for f
+  %      w = rand();
+  %       if (0.72 < w)
+  %       dn = -1; % if no fiss total neutrons-1
+  %       elseif (0.72 >= w)
+  %       cf = cf + 1;
+   %      end
+   % end
+   % for c = 1:cf
+  %      p = rand();
+  %      if 0.2 > p
+  %         dn = 0 ;
+  %      elseif (0.2 <= p) && (p <= 0.85) 
+  %          dn = 1;
+  %      elseif 0.85 < z
+  %          dn = 2;
+  %      end
        out=[out;[t,dn]];
-    end 
+  %  end 
     if nt==0 
         break;
     end
