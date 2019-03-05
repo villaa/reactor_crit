@@ -5,6 +5,7 @@ g = input('Enter number of generations = ');
 nt = ni; %initially set total neutrons to initial number inputted
 t=0;
 dn=0;
+cf=0;
 out=zeros(0,2);
 for z=1:g
     for a=1:nt
@@ -17,8 +18,28 @@ for z=1:g
             t = (y*200) +(z*200);
             out=[out;[t,dn]];
         end    
-    end     
-    if nt==0 break;
+    end  
+    for b = 1:nt %creating random numbers for f
+        w = rand();
+         if (0.72 < w)
+         dn = -1; % if no fiss total neutrons-1
+         elseif (0.72 >= w)
+         cf = cf + 1;
+         end
+    end
+    for c = 1:cf
+        p = rand();
+        if 0.2 > p
+           dn = 0 ;
+        elseif (0.2 <= p) && (p <= 0.85) 
+            dn = 1;
+        elseif 0.85 < z
+            dn = 2;
+        end
+       out=[out;[t,dn]];
+    end 
+    if nt==0 
+        break;
     end
 end
 B = sortrows (out, 1); %sort numerically by column one time     
