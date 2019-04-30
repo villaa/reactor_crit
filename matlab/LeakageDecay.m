@@ -21,15 +21,16 @@ for z=1:g
                 break;
             end
     end
+    
 end
-B = sortrows (out, 1); %sort numerically by column one time     
+B = sortrows (out, 1); %sort numerically by column one time   
 B= [[0,ni];B];
-B(:,2)=cumsum(B(:,2),1);     
+B(:,2)=cumsum(B(:,2),1);
 fileID = fopen('NofTData.txt','w');%write a a text file
-%formatSpec = '#Code Version #### Inputs: Number on Neutrons(%d) Number of generations(%d)\n\r';
-%fprintf(formatSpec,ni,g);
+formatSpec = '#Code Version #### Inputs: Number on Neutrons(%d) Number of generations(%d)\n\r';
+fprintf(formatSpec,ni,g);
 fprintf(fileID,'%3f %u\n',B'); %3digits past decimal in time integer for n total
 fclose(fileID); 
 
-B
+B;
 toc;
