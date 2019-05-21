@@ -1,6 +1,6 @@
-function fig = simplot
+function []= simplot(FracLeak)
 fid=fopen('NofTData.txt');
-s=textscan(fid,'%f %f %f','headerlines',0);
+s=textscan(fid,'%f %f %f','headerlines',2);
 fclose(fid);
 X=s{1};
 Y=s{2}; %This function plots the nx2 matrix B as(x,y) pairs
@@ -22,20 +22,19 @@ title('Neutrons over Time');
 xlabel('Time in microseconds');
 ylabel('Neutrons');
 
-halflife= (ln(2))/(constant);
-matEr = {(yfit),(-(Y))};
-Erdiff = Sum(matEr, 2);
-Er = ((Erdiff)^2)/(sqrt(n0));
-ChiSqu = Sum(Er);
-EperDegfree = (ChiSqu)/2;
+halflife= ((log(2))\(constant));
 
-datafile = fopen('dec5_10.txt','w+');
-fprintf(datafile,'%6s %12s\n','N','FracLeak','fit parameter','half-life', 'error');
+matEr = {(f(constant,X)),(-(Y))};
+Erdiff = sum(matEr, 2 );
+Er = ((Erdiff)^2)\(sqrt(n0));
+ChiSqu = sum(Er);
+EperDegfree = (ChiSqu)\2;
 
-%datafile = fopen('dec5_10.txt','a');
-
+datafile = fopen('dec5_21.txt','w+');
 fmt = '%5d %f %f %f %f';
-fprintf(datafile,fmt,n0,FracLeak,constant,halflife,EperDegfree);
+fprintf(datafile,fmt,'N','FracLeak','fit parameter','half-life', 'error');
 
+datafile = fopen('dec5_10.txt','a');
+fprintf(datafile,fmt,n0,FracLeak,constant,halflife,EperDegfree);
 
 end

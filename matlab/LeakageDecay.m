@@ -27,12 +27,10 @@ B = sortrows (out, 1); %sort numerically by column one time
 B= [[0,ni];B];
 B(:,2)=cumsum(B(:,2),1);
 fileID = fopen('NofTData.txt','w');%write a a text file
-formatSpec = '#Code Version #### Inputs: Number on Neutrons(%d) Number of generations(%d)\n\r';
-fprintf(formatSpec,ni,g);
+formatSpec = '#Code Version #### Inputs: Number on Neutrons(%d) Fractional Leakage(%d)\n\r';
+fprintf(fileID,formatSpec,ni,FracLeak);
 fprintf(fileID,'%3f %u\n',B'); %3digits past decimal in time integer for n total
-fclose(fileID); 
-fileID = fopen('dec5_10.txt','w');
-fprintf(fileID,'%6s %12s\n','N','FracLeak','fit parameter', 'error');
+fclose(fileID);
 
 B;
 toc;
